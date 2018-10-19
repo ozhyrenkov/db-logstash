@@ -1,0 +1,24 @@
+input {
+  jdbc {
+    jdbc_driver_library => "/data/mysql-connector-java.jar"
+    jdbc_driver_class => "com.mysql.jdbc.Driver"
+    jdbc_connection_string => "jdbc:mysql://server:port/database"
+    jdbc_user => "user"
+    schedule => "0 * * * *"
+    jdbc_password => "password"
+    statement_filepath  => "/data/query.sql"
+    last_run_metadata_path => "/data/.last_run"
+    jdbc_paging_enabled => "true"
+    jdbc_page_size => "50000"
+
+  }
+}
+output {
+    amazon_es {
+        hosts => [ "vpc-ua-team-upsell-lltzmnxambxn4koepapubdl6sy.eu-west-1.es.amazonaws.com" ]
+        region => "eu-west-1"
+        index => "index"
+        document_type => "document"
+        document_id => "%{id}"
+    }
+}
