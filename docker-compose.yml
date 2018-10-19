@@ -2,7 +2,7 @@ version: '3'
 
 services:
  logstash:
-    container_name: kz_logstash_users
+    container_name: my_db_logstash
     build:
       context: .
     restart: always
@@ -11,6 +11,6 @@ services:
       - ./pipeline:/usr/share/logstash/pipeline:ro
       - ./data:/data:rw
     ports:
-      - "5002:5000"
+      - "5004:5000"
     environment:
       LS_JAVA_OPTS: "-Xmx256m -Xms256m"
