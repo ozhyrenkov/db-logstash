@@ -7,7 +7,6 @@ services:
       context: .
     restart: always
     volumes:
-      - ./custom.sh:/usr/bin/custom.sh
       - ./config/logstash.yml:/usr/share/logstash/config/logstash.yml:ro
       - ./pipeline:/usr/share/logstash/pipeline:ro
       - ./data:/data:rw
@@ -15,5 +14,3 @@ services:
       - "5002:5000"
     environment:
       LS_JAVA_OPTS: "-Xmx256m -Xms256m"
-#    command:
-#     - custom.sh
