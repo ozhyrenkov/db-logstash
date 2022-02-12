@@ -15,7 +15,7 @@ input {
 }
 output {
     amazon_es {
-        hosts => [ "vpc-ua-team-upsell-lltzmnxambxn4koepapubdl6sy.eu-west-1.es.amazonaws.com" ]
+        hosts => [ "host" ]
         region => "eu-west-1"
         index => "index"
         document_type => "document"
